@@ -32,17 +32,15 @@ const Main = () => {
     dispatch(getMovie());
     getDataLocal();
 
-    const interval = setInterval(() => {
+    setInterval(() => {
       dispatch(getMovieEveryMinutes());
-    }, 10000);
+    }, 60000);
 
     if (movie.isChange) {
       setTimeout(() => {
         dispatch(isDoneDataChange());
       }, 10000);
     }
-
-    return () => clearInterval(interval);
   }, []);
 
   const handleButton = data => {
